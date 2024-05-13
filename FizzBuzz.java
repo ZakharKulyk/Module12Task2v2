@@ -42,10 +42,10 @@ public class FizzBuzz {
     public FizzBuzz(int n) {
         this.n = n;
         queue = new ArrayBlockingQueue(n);
+        C.start();
+        E.start();
         A.start();
         B.start();
-        E.start();
-//        C.start();
         D.start();
 
 
@@ -93,6 +93,7 @@ public class FizzBuzz {
     }
 
     public void buzz() {
+
         while (true) {
             while (canGo) {
                 if (currentValue == 0) {
@@ -130,7 +131,7 @@ public class FizzBuzz {
                     }
 
                 }
-                if (currentValue % 5 == 0 && currentValue % 3 == 0) {
+                if (currentValue % 5==0&& currentValue%3==0) {
                     try {
                         queue.put("fizzBuzz");
                         canGo = false;
