@@ -1,7 +1,7 @@
 public class FizzBuzzDemo {
     public static void main(String[] args) {
-        FizzBuzz fizzBuzz = new FizzBuzz(15);
 
+        FizzBuzz fizzBuzz = new FizzBuzz(15);
         try {
             fizzBuzz.A.join();
             fizzBuzz.B.join();
@@ -13,4 +13,6 @@ public class FizzBuzzDemo {
         }
 
     }
+
 }
+

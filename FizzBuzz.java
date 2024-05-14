@@ -8,7 +8,7 @@ public class FizzBuzz {
     int n;
     public int currentValue;
     BlockingQueue<String> queue;
-    boolean canGo = true;
+    boolean canGo = false;
 
 
     Thread A = new Thread(() -> {
@@ -42,6 +42,7 @@ public class FizzBuzz {
     public FizzBuzz(int n) {
         this.n = n;
         queue = new ArrayBlockingQueue(n);
+
         C.start();
         E.start();
         A.start();
@@ -131,7 +132,7 @@ public class FizzBuzz {
                     }
 
                 }
-                if (currentValue % 5==0&& currentValue%3==0) {
+                if (currentValue % 5 == 0 && currentValue % 3 == 0) {
                     try {
                         queue.put("fizzBuzz");
                         canGo = false;
@@ -184,6 +185,12 @@ public class FizzBuzz {
                 try {
                     System.out.println(queue.take());
 
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
